@@ -36,7 +36,7 @@ class Graph {
             List<Edge> list = adjacencyList.get(i);
             System.out.print("Wierzchołek " + i + " sąsiaduje z:");
             for (Edge edge : list) {
-                System.out.print(" -> " + edge.destination + "(waga: " + edge.weight + ")");
+                System.out.print(" " + edge.destination + "(waga: " + edge.weight + ")");
             }
             System.out.println();
         }
