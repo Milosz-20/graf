@@ -45,15 +45,24 @@ class Graph {
 
 public class Main {
     public static void main(String[] args) {
-        int vertices = 5;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj liczbę wierzchołków: ");
+        int vertices = scanner.nextInt();
         Graph graph = new Graph(vertices);
-        graph.addEdge(0, 1, 2);
-        graph.addEdge(0, 4, 5);
-        graph.addEdge(1, 2, 4);
-        graph.addEdge(1, 3, 7);
-        graph.addEdge(1, 4, 3);
-        graph.addEdge(2, 3, 6);
-        graph.addEdge(3, 4, 1);
+
+        char choice;
+        do {
+            System.out.print("Podaj początek połączenia: ");
+            int source = scanner.nextInt();
+            System.out.print("Podaj koniec połączenia: ");
+            int destination = scanner.nextInt();
+            System.out.print("Podaj wagę połączenia: ");
+            int weight = scanner.nextInt();
+            graph.addEdge(source, destination, weight);
+
+            System.out.print("Czy chcesz dodać kolejne połączenie? (T/N): ");
+            choice = scanner.next().charAt(0);
+        } while (choice == 'T' || choice == 't');
 
         graph.printGraph();
     }
